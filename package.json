@@ -1,0 +1,29 @@
+{
+  "name": "GateOpener",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shadaez/GateOpener.git"
+  },
+  "author": "Justin \"Shadaez\" Wheeler",
+  "license": "GPL v2",
+  "bugs": {
+    "url": "https://github.com/Shadaez/GateOpener/issues"
+  },
+  "homepage": "https://github.com/Shadaez/GateOpener",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "bower": "~1.2.8",
+    "aws-sdk": "~2.0.0-rc10",
+    "socket.io": "~0.9.16",
+    "socket.io-client": "~0.9.16",
+    "restify": "~2.6.3",
+    "underscore": "~1.6.0",
+    "node-persist": "0.0.2"
+  }
+}
