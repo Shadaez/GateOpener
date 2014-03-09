@@ -81,15 +81,26 @@ if (process.argv[2] === 'vps'){
 	/////////////
 
 	io.sockets.on('connection', function(socket){
-		socket.on('log', function(log, callback){
-			if (verifyLog(log)){
-				addLog(log);
+		socket.on('open', function(data){
+			 io.sockets.in('pi').emit('open', data);
+		});
+		socket.on('pi', function(){
+			//test if authorized
+			socket.join('pi');
+		});
+		socket.on('log', function(data, callback){
+			if (verifyLog(data.log /* test if in room */){
+				addLog(data.log);
 				callback(true);
 			} else {
 				callback(false);
 			}
 		});
 	});
+
+	function auth(data){
+		//bcrypt
+	}
 
 	function verifyLog(log){
 		if(log.url && log.date && Object.keys(log).length === 2){
@@ -102,7 +113,6 @@ if (process.argv[2] === 'vps'){
 	}
 
 	function addLog(log) {
-		//test log validity
 		var Logs =  db.getItem(dbName);
 		Logs.push(log);
 		db.setItem(dbName, Logs);
